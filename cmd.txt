@@ -1,0 +1,2 @@
+docker build -t madebian9 .
+./deploy.sh --create (a adapté)
