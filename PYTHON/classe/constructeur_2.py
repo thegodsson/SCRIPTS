@@ -18,8 +18,11 @@ class Vecteur:
 	def norme(self):
 		return sqrt(self.x**2 + self.y**2)
 
+	longueur = norme
+
 vecteur1 = Vecteur(-4, 2)
 print(vecteur1)
 #print(vecteur1.norme()) ## Ici on accède à la norme d'un vecteur via une fonction le mieux c'est d'y accédé via un atttibut, pour cela nous allons utilisé le décorateur "property", qui vas transformé notre fonction en attribut
 #print(vecteur1.norme) --> pas bon, il manque "property" 
 print(vecteur1.norme)
+print(vecteur1.longueur)
