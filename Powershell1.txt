@@ -1,0 +1,319 @@
+PS C:\Users\Public> Get-ChildItem
+
+    Répertoire : C:\Users\Public
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-r---       16/01/2020     10:38                Documents
+d-r---       19/03/2019     05:52                Downloads
+d-r---       19/03/2019     05:52                Music
+d-r---       19/03/2019     05:52                Pictures
+d-r---       19/03/2019     05:52                Videos
+
+PS C:\Users\Public> cd .\Documents\
+PS C:\Users\Public\Documents> Get-ChildItem
+PS C:\Users\Public\Documents> New-Item -Name "SAVE" -ItemType Directory
+
+
+    Répertoire : C:\Users\Public\Documents
+
+
+Mode                LastWriteTime         Length Name
+d-----       05/03/2020     09:55                SAVE
+
+
+    Répertoire : C:\Users\Public\Documents
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----       05/03/2020     09:55                SAVE
+
+
+
+    Répertoire : C:\Users\Public\Documents
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----       05/03/2020     09:56              0 utilisateur.txt
+
+
+PS C:\Users\Public\Documents> Get-ChildItem
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----       05/03/2020     09:55                SAVE
+-a----       05/03/2020     09:56              0 utilisateur.txt
+
+
+PS C:\Users\Public\Documents> New-Item -Name "groupes.txt" -ItemType File -Value "Voici la Liste des Groupes"
+
+
+    Répertoire : C:\Users\Public\Documents
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----       05/03/2020     10:01             26 groupes.txt
+
+
+PS C:\Users\Public\Documents> cat .\groupes.txt
+Voici la Liste des Groupes
+PS C:\Users\Public\Documents> notepad.exe .\groupes.txt
+PS C:\Users\Public\Documents> Copy-Item -Path .\utilisateur.txt -Destination .\SAVE\
+PS C:\Users\Public\Documents> Get-ChildItem .\SAVE\
+
+    Répertoire : C:\Users\Public\Documents\SAVE
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----       05/03/2020     09:56              0 utilisateur.txt
+
+PS C:\Users\Public\Documents> Move-Item -Path .\groupes.txt -Destination .\SAVE\
+PS C:\Users\Public\Documents> Get-ChildItem .\SAVE\
+
+
+    Répertoire : C:\Users\Public\Documents\SAVE
+
+
+----                -------------         ------ ----
+-a----       05/03/2020     10:01             26 groupes.txt
+-a----       05/03/2020     09:56              0 utilisateur.txt
+
+
+PS C:\Users\Public\Documents> notepad.exe
+PS C:\Users\Public\Documents> Rename-Item -Path .\utilisateur.txt -NewName .\utilisateur_save.txt
+PS C:\Users\Public\Documents> Get-ChildItem .\SAVE\
+
+
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----       05/03/2020     10:01             26 groupes.txt
+-a----       05/03/2020     09:56              0 utilisateur.txt
+
+
+PS C:\Users\Public\Documents> Get-ChildItem
+
+
+    Répertoire : C:\Users\Public\Documents
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----       05/03/2020     10:02                SAVE
+-a----       05/03/2020     09:56              0 utilisateur_save.txt
+
+
+PS C:\Users\Public\Documents> Rename-Item -Path .\SAVE\utilisateur.txt -NewName .\SAVE\utilisateur_save.txt
+Rename-Item : Impossible de renommer la cible spécifiée, car elle représente un chemin d’accès ou un nom d’appareil.
+Au caractère Ligne:1 : 1
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument : (:) [Rename-Item], PSArgumentException
+    + FullyQualifiedErrorId : Argument,Microsoft.PowerShell.Commands.RenameItemCommand
+
+PS C:\Users\Public\Documents> Rename-Item -Path .\SAVE\utilisateur.txt -NewName .\SAVE\utilisateur_save.txt
+Rename-Item : Impossible de renommer la cible spécifiée, car elle représente un chemin d’accès ou un nom d’appareil.
+Au caractère Ligne:1 : 1
++ Rename-Item -Path .\SAVE\utilisateur.txt -NewName .\SAVE\utilisateur_ ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument : (:) [Rename-Item], PSArgumentException
+    + FullyQualifiedErrorId : Argument,Microsoft.PowerShell.Commands.RenameItemCommand
+PS C:\Users\Public\Documents> Rename-Item -Path C:\Users\Public\Documents\utilisateur_save.txt^C
+PS C:\Users\Public\Documents> New-Item -Path .\SAVE\OU -ItemType Directory
+
+
+    Répertoire : C:\Users\Public\Documents\SAVE
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----       05/03/2020     10:08                OU
+
+
+PS C:\Users\Public\Documents> Get-ChildItem .\SAVE\
+
+
+    Répertoire : C:\Users\Public\Documents\SAVE
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----       05/03/2020     10:08                OU
+-a----       05/03/2020     10:01             26 groupes.txt
+-a----       05/03/2020     09:56              0 utilisateur.txt
+
+
+PS C:\Users\Public\Documents> New-Item -Path "C:\SAUVEGARDE" -ItemType Directory
+
+
+    Répertoire : C:\
+
+
+d-----       05/03/2020     10:09                SAUVEGARDE
+
+
+PS C:\Users\Public\Documents> Get-ChildItem C:
+
+
+    Répertoire : C:\Users\Public\Documents
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----       05/03/2020     10:08                SAVE
+-a----       05/03/2020     09:56              0 utilisateur_save.txt
+
+
+PS C:\Users\Public\Documents> Get-ChildItem C:\
+
+
+    Répertoire : C:\
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----       31/01/2020     16:23                Drivers
+d-----       06/02/2020     10:34                HashiCorp
+d-----       06/02/2020     10:03                InstallDir
+d-----       16/01/2020     11:23                INSTALLS
+d-----       31/01/2020     16:31                Intel
+d-----       03/03/2020     09:46                myGroups
+d-----       03/03/2020     09:43                NDPS
+d-----       19/03/2019     05:52                PerfLogs
+d-r---       18/02/2020     16:13                Program Files (x86)
+d-----       06/02/2020     16:11                Projet_vagrant
+d-----       31/01/2020     16:44                Reports
+d-----       05/03/2020     10:09                SAUVEGARDE
+d-----       31/01/2020     16:19                SourcesOSD
+d-r---       06/02/2020     09:52                Users
+d-----       03/03/2020     09:39                Windows
+-a----       06/02/2020     13:24           1024 .rnd
+-a----       03/03/2020     09:42             20 gpodebug.txt
+-a----       11/02/2020     17:43         483442 SDK_INSTALL.log.ITEM-S89702_000.log
+-a----       31/01/2020     16:38           1676 Start-Encryption2020-01-31-16-38.log
+-a----       03/03/2020     09:42            111 wksInfo.txt
+
+
+PS C:\Users\Public\Documents> Copy-Item -Path .\SAVE\ -Destination C:\SAUVEGARDE\ -Recurse
+PS C:\Users\Public\Documents> Get-ChildItem C:\
+
+
+    Répertoire : C:\
+
+
+Mode                LastWriteTime         Length Name
+d-----       31/01/2020     16:23                Drivers
+d-----       06/02/2020     10:34                HashiCorp
+d-----       06/02/2020     10:03                InstallDir
+d-----       16/01/2020     11:23                INSTALLS
+d-----       31/01/2020     16:31                Intel
+PS C:\Users\Public\Documents> Get-ChildItem C:\
+
+
+    Répertoire : C:\
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----       31/01/2020     16:23                Drivers
+d-----       06/02/2020     10:34                HashiCorp
+d-----       06/02/2020     10:03                InstallDir
+d-----       16/01/2020     11:23                INSTALLS
+d-----       31/01/2020     16:31                Intel
+d-----       03/03/2020     09:46                myGroups
+d-----       03/03/2020     09:43                NDPS
+d-r---       07/02/2020     12:50                Program Files
+d-r---       18/02/2020     16:13                Program Files (x86)
+d-----       06/02/2020     16:11                Projet_vagrant
+d-----       31/01/2020     16:44                Reports
+d-----       31/01/2020     16:19                SourcesOSD
+d-r---       06/02/2020     09:52                Users
+d-----       03/03/2020     09:39                Windows
+-a----       06/02/2020     13:24           1024 .rnd
+-a----       03/03/2020     09:42             20 gpodebug.txt
+-a----       11/02/2020     17:43         483442 SDK_INSTALL.log.ITEM-S89702_000.log
+-a----       16/01/2020     20:38           8196 smsbootsect.bak
+-a----       31/01/2020     16:38           1676 Start-Encryption2020-01-31-16-38.log
+
+
+PS C:\Users\Public\Documents> Copy-Item -Path .\SAVE\ -Destination C:\SAUVEGARDE\ -Recurse
+PS C:\Users\Public\Documents> Get-ChildItem C:\
+
+
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----       31/01/2020     16:23                Drivers
+d-----       06/02/2020     10:34                HashiCorp
+d-----       06/02/2020     10:03                InstallDir
+d-----       16/01/2020     11:23                INSTALLS
+d-----       31/01/2020     16:31                Intel
+d-----       03/03/2020     09:46                myGroups
+d-----       03/03/2020     09:43                NDPS
+d-----       19/03/2019     05:52                PerfLogs
+d-r---       18/02/2020     16:13                Program Files (x86)
+d-----       06/02/2020     16:11                Projet_vagrant
+d-----       31/01/2020     16:44                Reports
+d-----       05/03/2020     10:13                SAUVEGARDE
+d-----       31/01/2020     16:19                SourcesOSD
+d-r---       06/02/2020     09:52                Users
+d-----       03/03/2020     09:39                Windows
+-a----       03/03/2020     09:42             20 gpodebug.txt
+-a----       11/02/2020     17:43         483442 SDK_INSTALL.log.ITEM-S89702_000.log
+-a----       16/01/2020     20:38           8196 smsbootsect.bak
+-a----       31/01/2020     16:38           1676 Start-Encryption2020-01-31-16-38.log
+-a----       03/03/2020     09:42            111 wksInfo.txt
+
+
+PS C:\Users\Public\Documents> Get-ChildItem C:\SAUVEGARDE\
+
+
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----       05/03/2020     10:13                OU
+-a----       05/03/2020     10:01             26 groupes.txt
+-a----       05/03/2020     09:56              0 utilisateur.txt
+
+
+
+Name       ScopeName Path          Description
+----       --------- ----          -----------
+Sauvegarde *         C:\SAUVEGARDE
+
+
+PS C:\Users\Public\Documents> Grant-SmbShareAccess -Name Sauvegarde -AccountName "Tout le Monde" -AccessRight Read
+
+Confirmer
+Êtes-vous sûr de vouloir effectuer cette action ?
+Opération « Modify » en cours sur la cible « *,Sauvegarde ».
+[O] Oui  [T] Oui pour tout  [N] Non  [U] Non pour tout  [S] Suspendre  [?] Aide (la valeur par défaut est « O ») : T
+
+Name       ScopeName AccountName             AccessControlType AccessRight
+----       --------- -----------             ----------------- -----------
+Sauvegarde *         BUILTIN\Administrateurs Allow             Full
+PS C:\Users\Public\Documents> Get-ChildItem \\ITEM-S89702\Sauvegarde
+
+
+    Répertoire : \\ITEM-S89702\Sauvegarde
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----       05/03/2020     10:13                OU
+-a----       05/03/2020     10:01             26 groupes.txt
+-a----       05/03/2020     09:56              0 utilisateur.txt
+
+
+PS C:\Users\Public\Documents> Get-Location
+
+Path
+----
+C:\Users\Public\Documents
+C:\Users\Public\Documents
