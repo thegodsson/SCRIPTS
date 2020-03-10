@@ -1,1 +1,6 @@
 awk -F| {print "Ligne: " , NR , "Client : " , $1} tel3.txt
+awk -F| /[/]/ {print $0} tel3.txt
+awk -F| $3 ~ /^56/ {print $0} tel3.txt
+awk -F| NR == 1 || NR == 2 {print $1, " - " , $5} tel3.txt
+awk -F| NR == 2 , NR == 4 {print $1, " - " , $5} tel3.txt
+awk -f script1.awk tel3.txt
