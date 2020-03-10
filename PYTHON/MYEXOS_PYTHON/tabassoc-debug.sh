@@ -10,7 +10,7 @@ def source():
 		nom = separateur[0]
 		cp = separateur[1]
 		ville = separateur[2]
-		line = line.rstrip(' \n')
+		#line = line.rstrip(' \n')
 		liste1.append(ville)
 
 	print("La liste 1 : ", liste1)
