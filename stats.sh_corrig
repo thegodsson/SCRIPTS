@@ -1,0 +1,12 @@
+#! /usr/bin/ksh
+    
+exec 0< eleves.txt 
+IFS="|" 
+    
+read entete1 entete2 entete3  
+printf "%-15s%-10s%10s\n" $entete1 $entete2 $entete3 
+   
+while read nom classe moyenne 
+do 
+	printf "%-15s%-10s%10d\n" $nom $classe $moyenne 
+done 

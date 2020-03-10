@@ -1,0 +1,21 @@
+#!/usr/bin/python
+
+
+def source():
+	fichier=open("datas.txt", "r")
+	liste1 = []
+		
+	for line in fichier:
+		separateur = line.split("|")
+		nom = separateur[0]
+		cp = separateur[1]
+		ville = separateur[2]
+		liste1.append(ville.strip())
+		
+	print(liste1)
+
+	liste2 = []
+	for element in liste1:
+		liste2.append(element.strip())
+
+source()
