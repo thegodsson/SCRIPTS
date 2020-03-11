@@ -1,0 +1,15 @@
+#! /bin/bash
+
+  # Creation du tableau associatif
+  typeset -A tabVille
+  IFS="|"
+
+  while read nom cp ville
+  do
+   (( tabVille[$ville]++ ))
+  done < datas.txt
+
+  for ville in ${!tabVille[*]}
+ do
+   echo "$ville => ${tabVille[$ville]}"
+ done

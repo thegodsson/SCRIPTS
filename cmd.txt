@@ -1,0 +1,3 @@
+docker build -t madebian9 .
+Après vérifié avec un "docker images ls ou docker images" si l'image docker à été bien créé
+./deploy.sh --create (a adapté)
