@@ -1,6 +1,0 @@
-Ligne:  1 Client :  Joyeux Giselle
-Ligne:  2 Client :  Dehaut Olivier
-Ligne:  3 Client :  Karama Josette
-Ligne:  4 Client :  Zanouri Joel
-Ligne:  5 Client :  Gron Pierre
-Ligne:  6 Client :  Grival Zoe
