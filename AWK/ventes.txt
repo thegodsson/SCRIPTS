@@ -1,0 +1,17 @@
+Code article:Nombre darticles vendus
+
+#Paris
+A001:100
+A002:300
+A003:500
+
+#Nice
+A001:1000
+A002:30
+A003:5
+A004:2500
+#Marseille
+A001:3000
+A002:20
+A003:50
+A004:200
